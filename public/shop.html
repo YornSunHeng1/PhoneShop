@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhoneHub • Shop All Phones</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap">
+    <link rel="stylesheet" href="../public/css/shop.css">
+</head>
+<body>
+
+    <div id="navbar-placeholder"></div>
+
+    <section class="container my-4">
+        <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner rounded-4 overflow-hidden shadow-lg">
+                <div class="carousel-item active">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600" class="d-block w-100" alt="New Arrivals">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2 class="display-4 fw-bold text-white">New Arrivals 2025</h2>
+                        
+                        <p class="lead text-white">Discover the latest smartphones with cutting-edge technology</p>
+                        
+                        <a href="#products" class="btn btn-outline-light btn-lg px-5 mt-3">Shop Now</a>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=1600" class="d-block w-100" alt="Big Deals">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2 class="display-4 fw-bold">Up to 40% OFF</h2>
+                        <p class="lead">Limited time offers on flagship models</p>
+                        <a href="#products" class="btn btn-cyan-gradient btn-lg px-5">View Deals</a>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://images.unsplash.com/photo-1567581935881-3349723552ca?w=1600" class="d-block w-100" alt="Flagships">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2 class="display-4 fw-bold">Pro Series Flagships</h2>
+                        <p class="lead">Ultimate performance & camera systems</p>
+                        <a href="#products" class="btn btn-cyan-gradient btn-lg px-5">Explore</a>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+
+    <section class="container py-5" id="products">
+        <div class="row g-4">
+
+            <div class="col-lg-3">
+                <div class="filter-section sticky-top" style="top: 80px; background: rgba(255,255,255,0.02); padding: 20px; border-radius: 15px; border: 1px solid rgba(0, 212, 255, 0.1);">
+                    <h4 class="mb-4 fw-bold text-cyan">Filters</h4>
+
+                    <div class="mb-4">
+                        <h6 class="mb-3 fw-bold small text-uppercase text-secondary">Brand</h6>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input filter-brand" type="checkbox" value="Apple" id="b1" onchange="applyFilters()">
+                            <label class="form-check-label" for="b1">Apple</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input filter-brand" type="checkbox" value="Samsung" id="b2" onchange="applyFilters()">
+                            <label class="form-check-label" for="b2">Samsung</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input filter-brand" type="checkbox" value="Google" id="b3" onchange="applyFilters()">
+                            <label class="form-check-label" for="b3">Google</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input filter-brand" type="checkbox" value="Xiaomi" id="b4" onchange="applyFilters()">
+                            <label class="form-check-label" for="b4">Xiaomi</label>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <h6 class="mb-3 fw-bold small text-uppercase text-secondary">Max Price</h6>
+                        <input type="range" class="form-range" min="100" max="2500" step="50" id="priceRange" value="2500" oninput="document.getElementById('priceValue').innerText = '$' + this.value; applyFilters()">
+                        <div class="d-flex justify-content-between mt-2 small">
+                            <span>$100</span>
+                            <span id="priceValue" class="text-cyan fw-bold">$2500</span>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <h6 class="mb-3 fw-bold small text-uppercase text-secondary">RAM Memory</h6>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input filter-ram" type="checkbox" value="8GB" id="r1" onchange="applyFilters()">
+                            <label class="form-check-label" for="r1">8GB</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input filter-ram" type="checkbox" value="12GB" id="r2" onchange="applyFilters()">
+                            <label class="form-check-label" for="r2">12GB</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input filter-ram" type="checkbox" value="16GB" id="r3" onchange="applyFilters()">
+                            <label class="form-check-label" for="r3">16GB+</label>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <h6 class="mb-3 fw-bold small text-uppercase text-secondary">Storage</h6>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input filter-storage" type="checkbox" value="128GB" id="s1" onchange="applyFilters()">
+                            <label class="form-check-label" for="s1">128GB</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input filter-storage" type="checkbox" value="256GB" id="s2" onchange="applyFilters()">
+                            <label class="form-check-label" for="s2">256GB</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input filter-storage" type="checkbox" value="512GB" id="s3" onchange="applyFilters()">
+                            <label class="form-check-label" for="s3">512GB+</label>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <h6 class="mb-3 fw-bold small text-uppercase text-secondary">Screen Size</h6>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input filter-screen" type="checkbox" value="6.1" id="sc1" onchange="applyFilters()">
+                            <label class="form-check-label" for="sc1">Compact (~6.1")</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input filter-screen" type="checkbox" value="6.7" id="sc2" onchange="applyFilters()">
+                            <label class="form-check-label" for="sc2">Large (~6.7")</label>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <h6 class="mb-3 fw-bold small text-uppercase text-secondary">Min Rating</h6>
+                        <div class="d-flex gap-2">
+                            <button class="btn btn-sm btn-outline-secondary flex-fill" onclick="setRating(4)">4+ <i class="bi bi-star-fill text-warning"></i></button>
+                            <button class="btn btn-sm btn-outline-secondary flex-fill" onclick="setRating(5)">5 <i class="bi bi-star-fill text-warning"></i></button>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-outline-cyan w-100 mt-3 btn-sm fw-bold" onclick="location.reload()">
+                        <i class="bi bi-arrow-clockwise me-1"></i> RESET ALL FILTERS
+                    </button>
+                </div>
+            </div>
+
+            <div class="col-lg-9">
+
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h2 class="mb-0">All Phones</h2>
+
+                    <select class="form-select bg-dark text-white border-secondary w-auto"
+                            onchange="sortProducts(this.value)">
+                        <option value="featured">Sort by: Featured</option>
+                        <option value="low">Price: Low to High</option>
+                        <option value="high">Price: High to Low</option>
+                    </select>
+                </div>
+
+                <div class="row g-4" id="product-grid">
+                    </div>
+
+            </div>
+        </div>
+    </section>
+    
+    
+        <!-- Add to Cart Confirmation Modal -->
+    <div class="modal fade" id="addToCartModal" tabindex="-1" aria-labelledby="addToCartModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-dark text-white border-0" style="border-radius: 1.25rem;">
+            <div class="modal-header border-0 pb-0">
+                <h5 class="modal-title" id="addToCartModalLabel">Added to Cart</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center py-4">
+                <i class="bi bi-check-circle-fill text-cyan" style="font-size: 3.5rem;"></i>
+                <h5 class="mt-3 mb-2">Successfully added!</h5>
+                <p class="text-secondary mb-1" id="confirm-product-name"></p>
+                <small class="text-secondary">You can continue shopping or view your cart.</small>
+            </div>
+            <div class="modal-footer border-0 justify-content-center gap-3 pb-4">
+                <button type="button" class="btn btn-outline-light px-4" data-bs-dismiss="modal">Continue Shopping</button>
+               
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="offcanvas offcanvas-end bg-dark text-white" tabindex="-1" id="cartOffcanvas">
+        <div class="offcanvas-header border-bottom border-secondary">
+            <h5 class="offcanvas-title d-flex align-items-center gap-2">
+                <i class="bi bi-cart2 fs-4"></i> Your Cart
+            </h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body" id="cart-items"></div>
+        <div class="offcanvas-footer p-4 border-top border-secondary">
+            <div class="d-flex justify-content-between mb-3">
+                <span>Subtotal</span>
+                <span id="cart-subtotal" class="fw-bold">$0.00</span>
+            </div>
+            <div class="d-flex justify-content-between mb-4">
+                <span>Total</span>
+                <span id="cart-total" class="fs-4 fw-bold text-cyan">$0.00</span>
+            </div>
+            <button class="btn btn-cyan-gradient btn-lg w-100 py-3 fw-bold mb-3">
+                PROCEED TO CHECKOUT
+            </button>
+            <button class="btn btn-link text-secondary w-100" data-bs-dismiss="offcanvas">
+                Continue Shopping
+            </button>
+        </div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/script.js"></script>
+    <script src="../assets/js/products-data.js"></script>
+    <script src="../public/js/shop.js"></script>
+
+</body>
+</html>

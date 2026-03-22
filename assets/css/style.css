@@ -1,0 +1,142 @@
+:root {
+    /* Core Palette */
+    --primary: #00d4ff;
+    --primary-hover: #00e6ff;
+    --primary-dark: #00aaff;
+    --accent: #4facfe;
+    --primary-glow: rgba(0, 212, 255, 0.25);
+    
+    /* Dark Scale */
+    --dark-900: #0a0a0a;
+    --dark-800: #111111;
+    --dark-700: #1a1a2e;
+    --gray-800: #222222;
+    
+    /* Surfaces & Glass */
+    --glass-bg: rgba(10, 10, 10, 0.8);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    
+    /* Motion */
+    --transition-smooth: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- Base --- */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--dark-900);
+    color: #ffffff;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+.logo-font { font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.5px; }
+.text-cyan { color: var(--primary) !important; }
+
+/* --- Navbar Evolution --- */
+.navbar {
+    transition: background 0.3s ease, transform 0.4s var(--transition-smooth);
+    will-change: transform;
+    z-index: 1050; /* Ensuring it stays above standard Bootstrap elements */
+}
+
+.navbar.scrolled {
+    background: var(--glass-bg) !important;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--glass-border);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.nav-link-custom {
+    color: rgba(255, 255, 255, 0.7) !important;
+    font-weight: 500;
+    position: relative;
+    padding: 0.5rem 1rem;
+    transition: var(--transition-smooth);
+}
+
+.nav-link-custom:hover, 
+.nav-link-custom.active {
+    color: #fff !important;
+    text-shadow: 0 0 15px var(--primary-glow);
+}
+
+.nav-link-custom::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: var(--transition-smooth);
+    transform: translateX(-50%);
+}
+
+.nav-link-custom:hover::after,
+.nav-link-custom.active::after {
+    width: 60%;
+}
+
+/* --- Interactive Components --- */
+.card-neon {
+    background-color: var(--dark-800);
+    border: 1px solid var(--gray-800);
+    border-radius: 1.25rem;
+    overflow: hidden;
+    transition: var(--transition-smooth);
+}
+
+.card-neon:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary);
+    box-shadow: 0 20px 40px -10px var(--primary-glow);
+}
+
+.card-neon .product-img {
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.card-neon:hover .product-img {
+    transform: scale(1.1);
+}
+
+/* --- Buttons --- */
+.btn-cyan-gradient {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    border: none;
+    color: #000;
+    font-weight: 600;
+    border-radius: 100px;
+    padding: 10px 24px;
+    transition: var(--transition-smooth);
+}
+
+.btn-cyan-gradient:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 12px 25px var(--primary-glow);
+    color: #000;
+}
+
+/* --- Animation Keyframes --- */
+.animate-slide-up {
+    animation: slideUp 0.5s ease forwards;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Offcanvas & Modals --- */
+.offcanvas-dark {
+    background-color: var(--dark-900) !important;
+    color: white;
+    border-left: 1px solid var(--gray-800);
+}
+
+.modal-content-dark {
+    background-color: var(--dark-800);
+    border: 1px solid var(--gray-800);
+    border-radius: 1.5rem;
+}
