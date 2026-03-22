@@ -384,7 +384,7 @@ window.addEventListener('load', () => {
     console.log('%cPhoneHub – Bootstrap version loaded', 'color:#00d4ff; font-size:16px;');
 });
 
-        fetch('components/navbar.html')
+        fetch('../components/navbar.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('navbar-placeholder').innerHTML = data;
