@@ -384,7 +384,7 @@ window.addEventListener('load', () => {
     console.log('%cPhoneHub – Bootstrap version loaded', 'color:#00d4ff; font-size:16px;');
 });
 
-        fetch('../../components/navbar.html')
+        fetch('components/navbar.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('navbar-placeholder').innerHTML = data;
@@ -392,7 +392,7 @@ window.addEventListener('load', () => {
             .catch(err => console.error('Error loading navbar:', err));
 
         // Load Footer
-        fetch('../../components/footer.html')
+        fetch('components/footer.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('footer-placeholder').innerHTML = data;
